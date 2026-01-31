@@ -1,0 +1,216 @@
+/* ハンバーガーメニューボタン */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-dark);
+    font-size: 2.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* メニューコンテナ */
+.menu-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.75rem;
+}
+@media (min-width: 1024px) {
+    .menu-container {
+        display: none;
+    }
+}
+
+/* メインメニュー */
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-link, .submenu-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 0.8rem 1.2rem;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.menu-link:hover, .submenu-link:hover {
+    background-color: var(--primary-yellow);
+}
+
+.menu-link span, .submenu-link span {
+    margin-right: 0.5rem;
+}
+
+.submenu-icon {
+    font-size: 1.25rem;
+    transition: transform 0.3s;
+}
+
+/* サブメニュー */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--light-yellow);
+    min-width: 220px;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.submenu li {
+    border-bottom: 1px solid var(--primary-green);
+    position: relative;
+}
+
+.submenu li:last-child {
+    border-bottom: none;
+}
+
+.submenu a {
+    display: block;
+    color: #111;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.submenu a:hover {
+    background-color: var(--primary-yellow);
+}
+
+/* ネストされたサブメニュー（PC用） */
+.submenu-nested {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    min-width: 200px;
+    display: none;
+}
+
+/* ホバー時にサブメニューを表示（PC用） */
+.has-submenu:hover > .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.has-submenu:hover > .menu-link .submenu-icon,
+.has-submenu:hover > .submenu-link .submenu-icon {
+    transform: rotate(180deg);
+}
+
+.submenu li:hover > .submenu-nested {
+    display: block;
+}
+
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .menu-container {
+        position: fixed;
+        top: 96px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-yellow);
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+        z-index: 99;
+        color: var(--text-dark);
+    }
+    
+    .menu-container.active {
+        height: calc(100vh - 96px);
+        overflow-y: auto;
+    }
+    
+    .menu {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .menu-item {
+        border-bottom: 1px solid var(--primary-green);
+    }
+    
+    .menu-link {
+        padding: 1rem 1.5rem;
+    }
+    
+    /* モバイル用サブメニュー */
+    .submenu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background-color: var(--light-yellow);
+        box-shadow: none;
+        display: block !important;
+        min-width: 100%;
+    }
+    
+    .submenu.active {
+        max-height: 1000px; /* 十分な高さを確保 */
+    }
+    
+    .submenu li {
+        border-bottom: 1px solid var(--primary-green);
+    }
+    
+    .submenu a {
+        padding: 0.5rem 1.5rem 0.5rem 2.5rem;
+    }
+    
+    /* 孫カテゴリー用スタイル */
+    .submenu-nested {
+        position: static;
+        background-color: var(--light-yellow);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        display: block !important;
+    }
+    
+    .submenu-nested.active {
+        max-height: 1000px;
+    }
+    
+    /* 階層に応じたインデント */
+    .submenu .submenu a {
+        padding-left: 3.5rem;
+    }
+    
+    .submenu .submenu .submenu a {
+        padding-left: 4.5rem;
+    }
+    
+    .submenu .submenu .submenu .submenu a {
+        padding-left: 5.5rem;
+    }
+    
+    /* モバイル用アイコン回転 */
+    .submenu-icon.active {
+        transform: rotate(180deg);
+    }
+}
