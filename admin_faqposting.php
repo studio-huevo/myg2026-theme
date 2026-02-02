@@ -1,17 +1,17 @@
 <?php
-add_action('init', 'my_companyposting_init');
-function my_companyposting_init()
+add_action('init', 'my_faqposting_init');
+function my_faqposting_init()
 {
   $labels = array(
-    'name' => '法人情報',
-    'singular_name' => '法人情報',
-    'add_new' => '法人情報を追加',
-    'add_new_item' => '法人情報を追加する',
-    'edit_item' => '法人情報を編集する',
-    'new_item' => '新しい法人情報',
-    'view_item' => '法人情報表示',
-    'search_items' => '法人情報検索',
-    'not_found' =>  '検索法人情報が見つかりません',
+    'name' => 'FAQ情報',
+    'singular_name' => 'FAQ情報',
+    'add_new' => 'FAQ情報を追加',
+    'add_new_item' => 'FAQ情報を追加する',
+    'edit_item' => 'FAQ情報を編集する',
+    'new_item' => '新しいFAQ情報',
+    'view_item' => 'FAQ情報表示',
+    'search_items' => 'FAQ情報検索',
+    'not_found' =>  '検索FAQ情報が見つかりません',
     'not_found_in_trash' => 'ゴミ箱に物件はありません',
     'parent_item_colon' => ''
   );
@@ -29,7 +29,7 @@ function my_companyposting_init()
 //  'supports' => array('title','editor','author','thumbnail','excerpt','comments')
     'supports' => array('title','editor')
   );
-  register_post_type('corporation',$args);
+  register_post_type('faq',$args);
   flush_rewrite_rules( false );
 }
 

@@ -6,6 +6,7 @@ include_once (TEMPLATEPATH . '/admin_kango_rehaposting.php');
 include_once (TEMPLATEPATH . '/admin_kaigo_ichieposting.php');
 include_once (TEMPLATEPATH . '/admin_wakonoieposting.php');
 include_once (TEMPLATEPATH . '/admin_corporation.php');
+include_once (TEMPLATEPATH . '/admin_faqposting.php');
 include_once (TEMPLATEPATH . '/admin_jobposting.php');
 include_once (TEMPLATEPATH . '/admin_documentposting.php');
 
