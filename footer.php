@@ -36,7 +36,9 @@
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/lib/lib.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/common.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/script.js"></script>
-<?php if(is_page('wakonoie')): ?>
+<?php if(is_page('kango_ichie') || is_page('faq') || is_page('recruit')): ?>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/popup.js"></script>
+<?php elseif(is_page('wakonoie')): ?>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/wako_popup.js"></script>
 <?php endif; ?>
 <?php if ( is_home() && is_front_page() ) : ?>
