@@ -106,25 +106,25 @@
                                 <ul class="new-header__mega-links">
                                     <li>
                                         <div>
-                                            <a href="<?php echo home_url('/'); ?>kango" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>kango_ichie" class="new-header__mega-link">
                                                 ◆ 訪問看護・訪問リハビリテーション 一会
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>kango-info" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>kango_info" class="new-header__mega-link">
                                                 ├ 訪問看護
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>kango-reha" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>kango_reha" class="new-header__mega-link">
                                                 └ 訪問リハビリテーション
                                             </a>
                                         </div>
                                     </li>
-                                    <li><a href="<?php echo home_url('/'); ?>kaigo" class="new-header__mega-link">
+                                    <li><a href="<?php echo home_url('/'); ?>kaigo_ichie" class="new-header__mega-link">
                                         ◆ 訪問介護 一会
                                     </a></li>
-                                    <li><a href="<?php echo home_url('/'); ?>wako" class="new-header__mega-link">
+                                    <li><a href="<?php echo home_url('/'); ?>wakonoie" class="new-header__mega-link">
                                         ◆ わこの家
                                     </a></li>
                                 </ul>
@@ -185,17 +185,17 @@
                                 <ul class="new-header__mega-links">
                                     <li>
                                         <div>
-                                            <a href="<?php echo home_url('/'); ?>fqa" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>faq" class="new-header__mega-link">
                                                 ◆ よくある質問
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>fqa#visit" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>faq#visit" class="new-header__mega-link">
                                                 ├ 訪問関連の質問
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>fqa#wakonoie" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>faq#wakonoie" class="new-header__mega-link">
                                                 └ わこの家関連の質問
                                             </a>
                                         </div>
@@ -223,34 +223,34 @@
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>recruit-1" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>recruit/看護師（常勤／正規雇用）" class="new-header__mega-link">
                                                 ├ 看護師（常勤／正規雇用）求人
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>recruit-2" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>recruit/理学療法士・作業療法士（正社員）" class="new-header__mega-link">
                                                 ├ 理学療法士・作業療法士（正社員）求人
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>recruit-3" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>recruit/理学療法士・作業療法士（パート）" class="new-header__mega-link">
                                                 └ 理学療法士・作業療法士（パート）求人
                                             </a>
                                         </div>
                                     </li>
                                     <li>
                                         <div>
-                                            <a href="<?php echo home_url('/'); ?>staff-voice" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>staff_voice" class="new-header__mega-link">
                                                 ◆ スタッフの声
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>staff-voice#voice01" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>staff_voice#voice01" class="new-header__mega-link">
                                                 ├ スタッフの声（看護師・ＰＴ）
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>staff-voice#voice02" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>staff_voice#voice02" class="new-header__mega-link">
                                                 ├ スタッフの声（介護スタッフ）
                                             </a>
                                         </div>
@@ -262,17 +262,17 @@
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>training-1" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>training_01" class="new-header__mega-link">
                                                 ├ 社外研修
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>training-2" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>training_02" class="new-header__mega-link">
                                                 ├ 社内研修
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>training-3" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>training_03" class="new-header__mega-link">
                                                 └ 資格の取得
                                             </a>
                                         </div>
@@ -302,11 +302,11 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="<?php echo home_url('/'); ?>kango">◆ 訪問看護・訪問リハビリテーション 一会</a>
-                            <a href="<?php echo home_url('/'); ?>kango-info">├ 訪問看護</a>
-                            <a href="<?php echo home_url('/'); ?>kango-reha">└ 訪問リハビリテーション</a>
-                            <a href="<?php echo home_url('/'); ?>kaigo">◆ 訪問介護 一会</a>
-                            <a href="<?php echo home_url('/'); ?>wako">◆ わこの家</a>
+                            <a href="<?php echo home_url('/'); ?>kango_ichie">◆ 訪問看護・訪問リハビリテーション 一会</a>
+                            <a href="<?php echo home_url('/'); ?>kango_info">├ 訪問看護</a>
+                            <a href="<?php echo home_url('/'); ?>kango_reha">└ 訪問リハビリテーション</a>
+                            <a href="<?php echo home_url('/'); ?>kaigo_ichie">◆ 訪問介護 一会</a>
+                            <a href="<?php echo home_url('/'); ?>wakonoie">◆ わこの家</a>
                         </li>
                     </ul>
                 </li>
@@ -333,9 +333,9 @@
                     </a>
                     <ul class="submenu">
                         <li>
-                            <a href="<?php echo home_url('/'); ?>fqa">◆ よくある質問トップ</a>
-                            <a href="<?php echo home_url('/'); ?>fqa#visit">├ 訪問関連の質問</a>
-                            <a href="<?php echo home_url('/'); ?>fqa#wakonoie">└ わこの家関連の質問</a>
+                            <a href="<?php echo home_url('/'); ?>faq">◆ よくある質問トップ</a>
+                            <a href="<?php echo home_url('/'); ?>faq#visit">├ 訪問関連の質問</a>
+                            <a href="<?php echo home_url('/'); ?>faq#wakonoie">└ わこの家関連の質問</a>
                         </li>
                     </ul>
                 </li>
@@ -348,16 +348,16 @@
                     <ul class="submenu">
                         <li>
                             <a href="<?php echo home_url('/'); ?>recruit">◆ 採用情報トップ</a>
-                            <a href="<?php echo home_url('/'); ?>recruit-1">├ 看護師（常勤／正規雇用）求人</a>
-                            <a href="<?php echo home_url('/'); ?>recruit-2">├ 理学療法士・作業療法士（正社員）求人</a>
-                            <a href="<?php echo home_url('/'); ?>recruit-3">└ 理学療法士・作業療法士（パート）求人</a>
+                            <a href="<?php echo home_url('/'); ?>recruit/看護師（常勤／正規雇用）">├ 看護師（常勤／正規雇用）求人</a>
+                            <a href="<?php echo home_url('/'); ?>recruit/理学療法士・作業療法士（正社員）">├ 理学療法士・作業療法士（正社員）求人</a>
+                            <a href="<?php echo home_url('/'); ?>recruit/理学療法士・作業療法士（パート）">└ 理学療法士・作業療法士（パート）求人</a>
                             <a href="<?php echo home_url('/'); ?>staff-voice">◆ スタッフの声</a>
                             <a href="<?php echo home_url('/'); ?>staff-voice#voice01">├ スタッフの声（看護師・ＰＴ）</a>
                             <a href="<?php echo home_url('/'); ?>staff-voice#voice02">└ スタッフの声（介護スタッフ）</a>
                             <a href="<?php echo home_url('/'); ?>recruit#training">◆ 充実した研修制度</a>
-                            <a href="<?php echo home_url('/'); ?>training-1">├ 社外研修</a>
-                            <a href="<?php echo home_url('/'); ?>training-2">├ 社内研修</a>
-                            <a href="<?php echo home_url('/'); ?>training-3">└ 資格の取得</a>
+                            <a href="<?php echo home_url('/'); ?>training_01">├ 社外研修</a>
+                            <a href="<?php echo home_url('/'); ?>training_02">├ 社内研修</a>
+                            <a href="<?php echo home_url('/'); ?>training_03">└ 資格の取得</a>
                         </li>
                     </ul>
                 </li>

@@ -20,7 +20,7 @@
             <div class="features-grid">
                 <div>
                     <p style="padding-bottom: 3rem;">
-                        <?php echo nl2br(get_post_meta($post->ID, 'area_content01', true)); ?>
+                        <?php echo get_post_meta($post->ID, 'area_content01', true); ?>
                     <div class="features-grid" style="width: 90%;padding-bottom: 3rem;">
                         <a href="<?php echo home_url('/'); ?>kango_info" class="btn btn--green" style="font-size: 1.75rem;">
                             訪問看護ページへ

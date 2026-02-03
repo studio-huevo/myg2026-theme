@@ -1,22 +1,4 @@
 <?php get_header(); ?>
-
-<article>
-
-<nav class="category_head service">
-<ul>
-<li>採用情報</li>
-</ul>
-</nav><!-- category_head -->
-
-
-<section class="container" id="lineup">
-<div class="wrapper slide-in-top delay04">
-
-<div class="col12">
-<div class="box_starter-kit">
-<h1 class="text-center"><strong>募集要項</strong></h1>
-<div class="box_link">
-<div>
 <?php
 $syokusyu      = get_post_meta($post->ID,'syokusyu', true);
 $message       =get_post_meta($post->ID,'message', true);
@@ -34,70 +16,129 @@ $teate         = get_post_meta($post->ID,'teate', true);
 $shoyo         = get_post_meta($post->ID,'shoyo', true);
 $hoken         = get_post_meta($post->ID,'hoken', true);
 ?>
-<h3 class="font_round"><?php echo $syokusyu; ?>募集</h3>
-<div><?php echo nl2br($message); ?></div>
-<?php if(empty($keitai)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">雇用形態</span><span style="width:70%;border-bottom:none;"><?php echo nl2br($keitai); ?></span></p>
-<?php endif; ?>
-<?php if(empty($gyomu)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">職務内容</span><span style="border-bottom:none;"><?php echo nl2br($gyomu); ?></span></p>
-<?php endif; ?>
-<?php if(empty($koyoukikan)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">雇用期間</span><span style="border-bottom:none;"><?php echo nl2br($koyoukikan); ?></span></p>
-<?php endif; ?>
-<?php if(empty($shiyoukikan)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">試用期間</span><span style="border-bottom:none;"><?php echo nl2br($shiyoukikan); ?></span></p>
-<?php endif; ?>
-<?php if(empty($kinmukeitai)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">勤務形態</span><span style="border-bottom:none;"><?php echo nl2br($kinmukeitai); ?></span></p>
-<?php endif; ?>
-<?php if(empty($kinmujikan)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">勤務時間</span><span style="border-bottom:none;"><?php echo nl2br($kinmujikan); ?></span></p>
-<?php endif;?>
-<?php if(empty($kyukeijikan)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">休憩時間</span><span style="border-bottom:none;"><?php echo nl2br($kyukeijikan); ?></span></p>
-<?php endif; ?>
-<?php if(empty($syukyuseido)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">週休制度</span><span style="border-bottom:none;"><?php echo nl2br($syukyuseido); ?></span></p>
-<?php endif; ?>
-<?php if(empty($yukyu)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">有給休暇</span><span style="border-bottom:none;"><?php echo nl2br($yukyu); ?></span></p>
-<?php endif; ?>
-<?php if(empty($chinginkeitai)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">賃金形態</span><span style="border-bottom:none;"><?php echo nl2br($chinginkeitai); ?></span></p>
-<?php endif; ?>
-<?php if(empty($teate)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">手　　当</span><span style="border-bottom:none;"><?php echo nl2br($teate); ?></span></p>
-<?php endif;?>
-<?php if(empty($shoyo)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">賞　　与</span><span style="border-bottom:none;"><?php echo nl2br($shoyo); ?></span></p>
-<?php endif; ?>
-<?php if(empty($hoken)): ?>
-<?php else: ?>
-<p class="price"><span style="width:30%;border-bottom:none;">各種保険</span><span style="border-bottom:none;"><?php echo nl2br($hoken); ?></span></p>
-<?php endif; ?>
-</div><!-- rental -->
-</div><!-- box_link -->
-<p class="col12 text-center"><a href="<?php echo home_url('/'); ?>recruit/" class="btn_yellow_round">募集一覧</a></p>
-</div><!-- box_starter-kit -->
-</div><!-- col12 -->
-</div><!-- wrapper -->
-
-</section><!-- container -->
-
-
+<!-- メインコンテンツ -->
+<main class="main-content">
+    <!-- 施設紹介 -->
+    <section class="services-section" id="recruit">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="slash-title"><?php echo $syokusyu; ?></h2>
+            </div>
+            <?php echo $message; ?>
+            <?php if(is_single('看護師（常勤／正規雇用）')): ?>
+            <div>
+                <p style="padding-bottom: 2rem;">※「訪問看護１日のスケジュール」をご覧ください。</p>
+                <a href="<?php echo wp_get_attachment_image_src( '279','full',true )[0]; ?>"  class="btn btn--yellow btn--circle popup-image-btn">
+                    「訪問看護１日のスケジュール」はこちら
+                </a>
+            </div>
+            <?php elseif(is_single('理学療法士・作業療法士（正社員）')): ?>
+            <div>
+                <p style="padding-bottom: 2rem;">※「訪問リハ１日のスケジュール」をご覧ください。</p>
+                <a href="<?php echo wp_get_attachment_image_src( '280','full',true )[0]; ?>"  class="btn btn--yellow btn--circle popup-image-btn">
+                    「訪問リハ１日のスケジュール」はこちら
+                </a>
+            </div>
+            <?php endif; ?>
+            <div class="services-grid">
+                <div>
+                <table class="company--overview__table table-lay-col2">
+                    <?php if(empty($keitai)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>雇用形態</th>
+                        <td><?php echo $keitai; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($gyomu)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>職務内容</th>
+                        <td><?php echo $gyomu; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($shiyoukikan)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>試用期間</th>
+                        <td><?php echo $shiyoukikan; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($koyoukikan)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>雇用期間</th>
+                        <td><?php echo $koyoukikan; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($kinmukeitai)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>勤務形態</th>
+                        <td><?php echo $kinmukeitai; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($kinmujikan)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>勤務時間</th>
+                        <td><?php echo $kinmujikan; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($kyukeijikan)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>休憩時間</th>
+                        <td><?php echo $kyukeijikan; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($syukyuseido)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>週休制度</th>
+                        <td><?php echo $syukyuseido; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($yukyu)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>有給休暇</th>
+                        <td><?php echo $yukyu; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($chinginkeitai)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>賃金形態</th>
+                        <td><?php echo $chinginkeitai; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($teate)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>手　　当</th>
+                        <td><?php echo $teate; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($shoyo)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>賞　　与</th>
+                        <td><?php echo $shoyo; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                    <?php if(empty($hoken)): ?>
+                    <?php else: ?>
+                    <tr>
+                        <th>各種保険</th>
+                        <td><?php echo $hoken; ?></td>
+                    </tr>
+                    <?php endif; ?>
+                </table>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 <?php get_footer(); ?>

@@ -32,13 +32,71 @@
 <div id="page-top" class="page-top">
     <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/arrow-wh.svg" alt="ページトップへ戻る"></a>
 </div>
+<?php if(is_post_type_archive('kango_ichie') || is_post_type_archive('faq')) : ?>
+<!-- ポップアップ要素を修正 -->
+<div id="imagePopup" class="image-popup-overlay">
+    <div class="image-popup-container">
+        <button class="image-popup-close">&times;</button>
+        
+        <div class="image-popup-content">
+            <img id="popupImage" src="" alt="訪問導入フローシート">
+            <p class="image-popup-title">訪問導入フローシート</p>
+        </div>
+        
+        <!-- ズームコントロール -->
+        <div class="image-zoom-controls">
+            <button class="zoom-btn" id="zoomIn">+</button>
+            <button class="zoom-btn" id="zoomOut">−</button>
+            <button class="zoom-btn" id="resetZoom">↺</button>
+        </div>
+    </div>
+</div>
+<?php elseif(is_single('看護師（常勤／正規雇用）')): ?>
+<!-- ポップアップ要素を修正 -->
+<div id="imagePopup" class="image-popup-overlay">
+    <div class="image-popup-container">
+        <button class="image-popup-close">&times;</button>
+        
+        <div class="image-popup-content">
+            <img id="popupImage" src="" alt="訪問看護1日のスケジュール">
+            <p class="image-popup-title">訪問看護1日のスケジュール</p>
+        </div>
+        
+        <!-- ズームコントロール -->
+        <div class="image-zoom-controls">
+            <button class="zoom-btn" id="zoomIn">+</button>
+            <button class="zoom-btn" id="zoomOut">−</button>
+            <button class="zoom-btn" id="resetZoom">↺</button>
+        </div>
+    </div>
+</div>
+<?php elseif(is_single('理学療法士・作業療法士（正社員）')): ?>
+    <!-- ポップアップ要素を修正 -->
+<div id="imagePopup" class="image-popup-overlay">
+    <div class="image-popup-container">
+        <button class="image-popup-close">&times;</button>
+        
+        <div class="image-popup-content">
+            <img id="popupImage" src="" alt="訪問リハ1日のスケジュール">
+            <p class="image-popup-title">訪問リハ1日のスケジュール</p>
+        </div>
+        
+        <!-- ズームコントロール -->
+        <div class="image-zoom-controls">
+            <button class="zoom-btn" id="zoomIn">+</button>
+            <button class="zoom-btn" id="zoomOut">−</button>
+            <button class="zoom-btn" id="resetZoom">↺</button>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/lib/lib.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/common.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/script.js"></script>
-<?php if(is_page('kango_ichie') || is_page('faq') || is_page('recruit')): ?>
+<?php if(is_post_type_archive('kango_ichie') || is_post_type_archive('faq') || is_single('看護師（常勤／正規雇用）') || is_single('理学療法士・作業療法士（正社員）')): ?>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/popup.js"></script>
-<?php elseif(is_page('wakonoie')): ?>
+<?php elseif(is_post_type_archive('wakonoie')): ?>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/wako_popup.js"></script>
 <?php endif; ?>
 <?php if ( is_home() && is_front_page() ) : ?>

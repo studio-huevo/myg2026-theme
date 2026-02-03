@@ -326,8 +326,8 @@ html, body {
 }
 
 body {
-  font-family: YuGothic, "Yu Gothic Medium", "Yu Gothic", 'Hiragino Kaku Gothic ProN', 'meiryo', sans-serif, 'icons';
-  line-height: 1.5;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1.6;
   min-width: 1200px;
   font-size: 1.5rem;
   color: #000
@@ -12169,6 +12169,7 @@ transform: scale(1.15);
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 50% 25%;
     transition: transform 0.5s;
 }
 
@@ -12377,6 +12378,40 @@ transform: scale(1.15);
     border-top: 1px solid rgba(0,0,0,0.1);
 }
 
+/* FAQセクション */
+    
+.faq-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.faq-question {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 1.75rem;
+}
+.faq-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+.faq-answer {
+    padding-left: 34px;
+    color: #555;
+    line-height: 1.6;
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
     body {
@@ -12406,14 +12441,9 @@ transform: scale(1.15);
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .services-wako-grid div {
-    /* 10個目以降を非表示 */
-    display: none;
-    }
-    
-    /* 最初の6個だけ表示 */
-    .services-wako-grid div:nth-child(-n+8) {
-      display: block;
+    .services-wako-grid div.hidden_photo {
+    /* スマホ非表示 */
+      display: none;
     }
 
     .news-grid {
@@ -12422,7 +12452,7 @@ transform: scale(1.15);
 
     .news-grid div {
     /* 10個目以降を非表示 */
-    display: none;
+      display: none;
     }
     
     /* 最初の6個だけ表示 */
