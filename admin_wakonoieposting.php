@@ -12,7 +12,7 @@ function my_wakonoieposting_init()
     'view_item' => 'わこの家情報表示',
     'search_items' => 'わこの家情報検索',
     'not_found' =>  '検索わこの家情報が見つかりません',
-    'not_found_in_trash' => 'ゴミ箱に物件はありません',
+    'not_found_in_trash' => 'ゴミ箱にわこの家情報はありません',
     'parent_item_colon' => ''
   );
   $args = array(

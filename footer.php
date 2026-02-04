@@ -89,6 +89,29 @@
         </div>
     </div>
 </div>
+<?php elseif(is_post_type_archive('wakonoie')): ?>
+<!-- ポップアップ要素を修正 -->
+<div id="imagePopup" class="image-popup-overlay">
+    <div class="image-popup-container">
+        <button class="image-popup-close">&times;</button>
+
+        <!-- ナビゲーションボタンを追加 -->
+        <button class="nav-btn prev-btn" id="prevBtn">‹</button>
+        <button class="nav-btn next-btn" id="nextBtn">›</button>
+        
+        <div class="image-popup-content">
+            <img id="popupImage" src="" alt="ホームホスピス わこの家">
+            <p class="image-popup-title">ホームホスピス わこの家</p>
+        </div>
+        
+        <!-- ズームコントロール -->
+        <div class="image-zoom-controls">
+            <button class="zoom-btn" id="zoomIn">+</button>
+            <button class="zoom-btn" id="zoomOut">−</button>
+            <button class="zoom-btn" id="resetZoom">↺</button>
+        </div>
+    </div>
+</div>
 <?php endif; ?>
 
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/lib/lib.js"></script>

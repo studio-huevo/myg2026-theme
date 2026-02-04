@@ -12648,13 +12648,15 @@ transform: scale(1.15);
     position: relative;
 }
 
-.image-popup-content {
-    max-width: 95vw;
-    max-height: 85vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.image-popup-content img {
+    max-width: 100%;
+    max-height: calc(85vh - 50px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
 .image-popup-content img {
@@ -12665,6 +12667,7 @@ transform: scale(1.15);
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease; /* ズーム時の滑らかさを追加 */
 }
 
 .image-popup-close {
@@ -12702,6 +12705,54 @@ transform: scale(1.15);
     font-family: 'Noto Sans JP', sans-serif;
 }
 
+/* ナビゲーションボタン */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* ボタンを画像の外側に配置 */
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* 画像カウンター */
+.image-counter {
+    position: absolute;
+    bottom: -30px; /* タイトルの下に表示 */
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
 /* 画像拡大縮小コントロール */
 .image-zoom-controls {
     position: absolute;
@@ -12734,8 +12785,8 @@ transform: scale(1.15);
 /* モバイル向け調整 */
 @media (max-width: 768px) {
     .image-popup-content {
-        max-width: 98vw;
-        max-height: 90vh;
+        max-width: 95vw;
+        padding: 0 40px; /* ボタンのスペースを確保 */
     }
     
     .image-popup-content img {
@@ -12750,6 +12801,31 @@ transform: scale(1.15);
         font-size: 30px;
     }
     
+    .nav-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        background: rgba(0, 0, 0, 0.8); /* スマホでは背景を濃く */
+    }
+
+    /* タップしやすいようにエリアを拡大 */
+    .nav-btn::after {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+    }
+    
+    .prev-btn {
+        left: 5px;
+    }
+    
+    .next-btn {
+        right: 5px;
+    }
+    
     .zoom-btn {
         width: 35px;
         height: 35px;
@@ -12760,11 +12836,91 @@ transform: scale(1.15);
         bottom: 10px;
         right: 10px;
     }
+    
+    .image-counter {
+        bottom: -25px;
+        font-size: 12px;
+        padding: 4px 12px;
+    }
+    
+    .image-popup-title {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+
+    /* スワイプ操作のヒント */
+    .image-popup-overlay::before {
+        content: '左右にスワイプして画像を切り替え';
+        position: absolute;
+        bottom: 70px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 12px;
+        font-family: 'Noto Sans JP', sans-serif;
+        animation: fadeInOut 3s ease-in-out;
+        opacity: 0;
+    }
+    
+    @keyframes fadeInOut {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+    }
+}
+
+/* 非常に小さなスマホ */
+@media (max-width: 480px) {
+    .image-popup-content {
+        padding: 0 35px;
+    }
+    
+    .nav-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+    }
+    
+    .prev-btn {
+        left: 2px;
+    }
+    
+    .next-btn {
+        right: 2px;
+    }
 }
 
 /* 横長画像用の調整 */
 @media (orientation: landscape) and (max-height: 600px) {
     .image-popup-content img {
         max-height: calc(95vh - 40px);
+    }
+    
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .image-counter {
+        font-size: 12px;
+        bottom: -20px;
+    }
+}
+
+/* タブレット向け調整 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+    }
+    
+    .prev-btn {
+        left: 15px;
+    }
+    
+    .next-btn {
+        right: 15px;
     }
 }

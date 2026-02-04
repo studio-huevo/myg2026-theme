@@ -19,10 +19,47 @@
 <meta name="description" content="ホームホスピス関する相談・訪問看護・訪問リハビリ・訪問介護のお悩みは「むゆうげん」へ" />
 <meta name="keywords" content="ホームホスピス,わこの家,訪問看護,訪問リハビリ,訪問介護,むゆうげん,一会" />
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/assets/css/styles.css'; echo '?' . filemtime( get_stylesheet_directory() . '/assets/css/styles.css'); ?>/" media="all">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/assets/css/nav-style.css'; echo '?' . filemtime( get_stylesheet_directory() . '/assets/css/nav-style.css'); ?>/" media="all">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/assets/css/styles.css'; echo '?' . filemtime( get_stylesheet_directory() . '/assets/css/styles.css'); ?>" media="all">
+<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/assets/css/nav-style.css'; echo '?' . filemtime( get_stylesheet_directory() . '/assets/css/nav-style.css'); ?>" media="all">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&amp;family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<?php if( is_page('contact') ) : ?>
+<style>
+/* ===== CF7 プロ仕様送信ボタン ===== */
+
+.cf7-submit{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  background-color: var(--primary-green);
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+
+  padding:16px 28px;
+  border:none;
+  border-radius:12px;
+
+  cursor:pointer;
+  transition:.25s;
+}
+
+.cf7-submit i{
+  transition:.25s;
+}
+
+.cf7-submit:hover i{
+  transform:translateX(6px);
+}
+
+/* スピナー非表示 */
+span.wpcf7-spinner {
+  display: none;
+}
+
+</style>
+<?php endif; ?>
 <!-- WordPressのjQueryを読み込ませない -->
 <?php wp_deregister_script('jquery'); ?>
 

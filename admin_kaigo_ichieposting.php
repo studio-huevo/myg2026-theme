@@ -12,7 +12,7 @@ function my_kaigo_ichieposting_init()
     'view_item' => '訪問介護情報表示',
     'search_items' => '訪問介護情報検索',
     'not_found' =>  '検索訪問介護情報が見つかりません',
-    'not_found_in_trash' => 'ゴミ箱に物件はありません',
+    'not_found_in_trash' => 'ゴミ箱に訪問介護情報はありません',
     'parent_item_colon' => ''
   );
   $args = array(

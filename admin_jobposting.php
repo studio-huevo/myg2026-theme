@@ -12,7 +12,7 @@ function my_jobposting_init()
     'view_item' => '求人票表示',
     'search_items' => '求人票検索',
     'not_found' =>  '検索求人票が見つかりません',
-    'not_found_in_trash' => 'ゴミ箱に物件はありません',
+    'not_found_in_trash' => 'ゴミ箱に求人票はありません',
     'parent_item_colon' => ''
   );
   $args = array(

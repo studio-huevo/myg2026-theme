@@ -12,7 +12,7 @@ function my_documentposting_init()
     'view_item' => '重要事項説明書表示',
     'search_items' => '重要事項説明書検索',
     'not_found' =>  '検索重要事項説明書が見つかりません',
-    'not_found_in_trash' => 'ゴミ箱に物件はありません',
+    'not_found_in_trash' => 'ゴミ箱に重要事項説明書はありません',
     'parent_item_colon' => ''
   );
   $args = array(

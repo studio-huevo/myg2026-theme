@@ -1,105 +1,128 @@
 /* =========================
-  設定値
+ 設定
 ========================= */
-const ACCESS_TOKEN = "EAAhTHwMuUIwBQs9zyUSvidkQeOqPGuM9JX7A0NucMd4uegVUjEOTcVaZCmKc93z6Xf6rsbWjVWgyO7sFrYXbkTIHqq4ZAOeok6c9b803NDZAcwOfZCFMCrrq3i7VdtO5eOMLG0PV3MTkA2Ae60EMYGGQoWAmLS7pbSFsyCOo3fXODWLFOQVtwo2lu0Kj7ZAQYM2hR";
-const IG_USER_ID = "17841446314930709";
 const DISPLAY_LIMIT = 10;
 
-/* 固定判定に使う文言 */
-const PIN_KEYWORD = "訪問看護(リハビリ)空き時間表";
+/*
+ 固定カテゴリ
+ → 各カテゴリから最新1件取得
+*/
+const PIN_CATEGORIES = [
+  "訪問看護(リハビリ)空き時間表",
+  "入居状況"
+];
+
 
 /* =========================
-  年月抽出（YYYY年M月）
+ 投稿を投稿日順にソート
 ========================= */
-function extractYearMonth(caption) {
-  if (!caption) return null;
-
-  const match = caption.match(/(\d{4})年\s*(\d{1,2})月/);
-  if (!match) return null;
-
-  return {
-    year: Number(match[1]),
-    month: Number(match[2]),
-    value: Number(match[1]) * 100 + Number(match[2]) // 比較用
-  };
+function sortByDate(posts) {
+  return posts.sort(
+    (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+  );
 }
 
+
 /* =========================
-  固定投稿を取得（最新年月）
+ カテゴリごとに最新固定を取得
 ========================= */
-function getPinnedPost(posts) {
-  const candidates = posts
-    .map(post => {
-      if (!post.caption || !post.caption.includes(PIN_KEYWORD)) return null;
+function getPinnedPosts(posts) {
 
-      const ym = extractYearMonth(post.caption);
-      if (!ym) return null;
+  const pinned = [];
 
-      return { ...post, ymValue: ym.value };
-    })
-    .filter(Boolean);
+  PIN_CATEGORIES.forEach(keyword => {
 
-  if (candidates.length === 0) return null;
+    const match = posts
+      .filter(post =>
+        post.caption && post.caption.includes(keyword)
+      )
+      .sort(
+        (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+      )[0];
 
-  // 年月が一番新しい投稿を固定扱い
-  return candidates.sort((a, b) => b.ymValue - a.ymValue)[0];
+    if (match) {
+      pinned.push(match);
+    }
+
+  });
+
+  // 固定同士も投稿日順にする
+  return sortByDate(pinned);
 }
 
+
 /* =========================
-  表示用配列作成
+ 表示配列作成
 ========================= */
 function buildDisplayPosts(posts) {
-  const pinned = getPinnedPost(posts);
 
-  const normalPosts = pinned
-    ? posts.filter(p => p.id !== pinned.id)
-    : posts;
+  posts = sortByDate(posts);
 
-  const result = pinned
-    ? [pinned, ...normalPosts]
-    : normalPosts;
+  const pinnedPosts = getPinnedPosts(posts);
 
-  return result.slice(0, DISPLAY_LIMIT);
+  const pinnedIds = pinnedPosts.map(p => p.id);
+
+  const normalPosts = posts.filter(
+    p => !pinnedIds.includes(p.id)
+  );
+
+  return [...pinnedPosts, ...normalPosts]
+    .slice(0, DISPLAY_LIMIT);
 }
 
+
 /* =========================
-  HTML描画
+ 画像URL取得（動画対応）
+========================= */
+function getImageUrl(post) {
+
+  if (post.media_type === "VIDEO") {
+    return post.thumbnail_url || post.media_url;
+  }
+
+  return post.media_url;
+}
+
+
+/* =========================
+ HTML描画
 ========================= */
 function renderInstagram(posts) {
+
   const grid = document.getElementById("instagram-grid");
   grid.innerHTML = "";
 
-  posts.forEach(post => {
+  posts.forEach((post, index) => {
+
     const div = document.createElement("div");
+
+    // 固定投稿にclass付与
+    if (index < PIN_CATEGORIES.length) {
+      div.classList.add("instagram-pinned");
+    }
+
     div.innerHTML = `
       <a href="${post.permalink}" target="_blank" rel="noopener">
-        <img src="${post.media_url}" alt="">
+        <img src="${getImageUrl(post)}" alt="">
       </a>
     `;
+
     grid.appendChild(div);
   });
 }
 
+
 /* =========================
-  Instagram取得
+ Instagram取得
 ========================= */
 async function loadInstagram() {
-  try {
-    const res = await fetch(
-      `https://graph.facebook.com/v19.0/${IG_USER_ID}/media` +
-      `?fields=id,caption,media_url,permalink,timestamp` +
-      `&limit=25&access_token=${ACCESS_TOKEN}`
-    );
 
-    const json = await res.json();
-    if (!json.data) throw new Error("Instagram API error");
+  const res = await fetch("/wp-json/custom/v1/instagram");
+  const posts = await res.json();
 
-    const displayPosts = buildDisplayPosts(json.data);
-    renderInstagram(displayPosts);
+  const displayPosts = buildDisplayPosts(posts);
 
-  } catch (e) {
-    console.error("Instagram表示エラー", e);
-  }
+  renderInstagram(displayPosts);
 }
 
 loadInstagram();

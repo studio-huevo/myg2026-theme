@@ -4,24 +4,31 @@ Template Name: Contact
 */
 ?>
 <?php get_header(); ?>
-<article>
 
-<section class="category_head">
-<?php if ( is_page('contact')) : ?>
-<h1>資料請求・お問い合わせ</h1>
-<?php elseif ( is_page('contact2')) : ?>
-<h1>施設見学のご相談</h1>
-<?php endif; ?>
+<!-- メインコンテンツ -->
+<main class="main-content">
+    
+    
+    <!-- お問い合わせ -->
+    <section class="features-section" id="summary" style="background-color: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="slash-title">
+                    お問い合わせ
+                </h2>
+            </div>
+            
+            <div class="contact__container">
 
-</section>
-
-<div class="container slide-in-top ">
-<div class="wrapper">
-<?php if (have_posts()) : ?>
-<?php while (have_posts()) : the_post(); /* ループ開始 */ ?>
-<?php the_content(); ?>
-<?php endwhile; endif; ?>
-</div><!-- wrapper -->
-</div><!-- container -->
+                <p class="contact-catch">メールでのお問い合わせは、<br class="pc-hide">以下の送信フォームをご利用ください。</p>
+                <div class="padding-wrapper">
+                        <?php if (have_posts()) : ?>
+                        <?php while (have_posts()) : the_post(); /* ループ開始 */ ?>
+                        <?php the_content(); ?>
+                        <?php endwhile; endif; ?>
+                </div>
+            </div><!-- /.contents_inner -->
+        </div>
+    </section>
 
 <?php get_footer(); ?>

@@ -12,7 +12,7 @@ function my_faqposting_init()
     'view_item' => 'FAQ情報表示',
     'search_items' => 'FAQ情報検索',
     'not_found' =>  '検索FAQ情報が見つかりません',
-    'not_found_in_trash' => 'ゴミ箱に物件はありません',
+    'not_found_in_trash' => 'ゴミ箱にFAQ情報はありません',
     'parent_item_colon' => ''
   );
   $args = array(

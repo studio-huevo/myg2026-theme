@@ -8,12 +8,17 @@ include_once (TEMPLATEPATH . '/admin_wakonoieposting.php');
 include_once (TEMPLATEPATH . '/admin_corporation.php');
 include_once (TEMPLATEPATH . '/admin_faqposting.php');
 include_once (TEMPLATEPATH . '/admin_jobposting.php');
+include_once (TEMPLATEPATH . '/admin_staff_voiceposting.php');
+include_once (TEMPLATEPATH . '/admin_trainingposting.php');
+include_once (TEMPLATEPATH . '/admin_terminal_careposting.php');
 include_once (TEMPLATEPATH . '/admin_documentposting.php');
 
 // メディアの位置変更
 function custom_menus() {
   global $menu;
-  $menu[19] = $menu[10];
+  $menu[22] = $menu[20];
+  unset($menu[20]);
+  $menu[21] = $menu[10];
   unset($menu[10]);
 }
 add_action('admin_menu', 'custom_menus');
@@ -77,6 +82,75 @@ function pagination($pages = '', $range = 2)
 		echo "</ul>\n";
 		echo "</div>\n";
      }
+}
+
+//メールフォームの textarea にひらがなが無ければ送信できない（contact form7）
+add_filter('wpcf7_validate_textarea', 'wpcf7_validation_textarea_hiragana', 10, 2);
+add_filter('wpcf7_validate_textarea*', 'wpcf7_validation_textarea_hiragana', 10, 2);
+
+function wpcf7_validation_textarea_hiragana($result, $tag)
+{
+    $name = $tag['name'];
+    $value = (isset($_POST[$name])) ? (string) $_POST[$name] : '';
+
+    if ($value !== '' && !preg_match('/[ぁ-ん]/u', $value)) {
+        $result['valid'] = false;
+        $result['reason'] = array($name => 'エラー / この内容は送信できません。');
+    }
+
+    return $result;
+}
+
+/* ===============================
+ Instagram API（トークン非公開）
+=============================== */
+
+add_action('rest_api_init', function () {
+
+    register_rest_route('custom/v1', '/instagram', array(
+        'methods'  => 'GET',
+        'callback' => 'get_instagram_feed',
+    ));
+
+});
+
+function get_instagram_feed() {
+
+    $cache_key = 'instagram_feed_cache';
+
+    // キャッシュ取得
+    $cached = get_transient($cache_key);
+
+    if ($cached) {
+        return $cached;
+    }
+
+    // ★ここにトークン（外部に見えない）
+    $access_token = 'EAAhTHwMuUIwBQs9zyUSvidkQeOqPGuM9JX7A0NucMd4uegVUjEOTcVaZCmKc93z6Xf6rsbWjVWgyO7sFrYXbkTIHqq4ZAOeok6c9b803NDZAcwOfZCFMCrrq3i7VdtO5eOMLG0PV3MTkA2Ae60EMYGGQoWAmLS7pbSFsyCOo3fXODWLFOQVtwo2lu0Kj7ZAQYM2hR';
+    $ig_user_id   = '17841446314930709';
+
+    $url = "https://graph.facebook.com/v19.0/{$ig_user_id}/media"
+        . "?fields=id,caption,media_type,media_url,thumbnail_url,permalink,timestamp"
+        . "&limit=30"
+        . "&access_token={$access_token}";
+
+    $response = wp_remote_get($url);
+
+    if (is_wp_error($response)) {
+        return [];
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body, true);
+
+    if (!isset($data['data'])) {
+        return [];
+    }
+
+    // ★キャッシュ（1時間）
+    set_transient($cache_key, $data['data'], HOUR_IN_SECONDS);
+
+    return $data['data'];
 }
 
 ?>
