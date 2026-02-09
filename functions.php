@@ -23,6 +23,18 @@ function custom_menus() {
 }
 add_action('admin_menu', 'custom_menus');
 
+/* 【管理画面】管理者以外の投稿メニューを非表示 */
+if (!current_user_can('administrator')) { // 管理者以外を対象
+  function remove_menus () {
+    global $menu;
+    remove_menu_page('edit.php'); // 投稿を非表示
+    remove_menu_page( 'edit.php?post_type=page' ); // 固定ページを非表示
+    remove_menu_page( 'edit-comments.php' ); // コメントを非表示
+    remove_menu_page( 'wpcf7' ); // Contact Form 7を非表示
+  }
+  add_action('admin_menu', 'remove_menus');
+}
+
 function my_post_queries( $query ) {
 	if ( is_admin() || ! $query->is_main_query() )
 		return;

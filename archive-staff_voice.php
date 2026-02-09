@@ -2,7 +2,7 @@
 
 <!-- メインコンテンツ -->
 <main class="main-content">
-    <!-- よくある質問（訪問関連） -->
+    <!-- スタッフの声 -->
     <?php
     $staffvoice_args = Array(
         'post_type' => 'staff_voice',  // 投稿

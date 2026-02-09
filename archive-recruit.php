@@ -20,48 +20,45 @@
             <p>地域の皆様の在宅療養を豊かにしたいという思いのもと、心を込めたケアを行ってくださる方は大歓迎です。</p>
             
             <div class="services-grid">
+                <?php
+                $recruit_args = Array(
+                    'post_type' => 'recruit',  // 投稿
+                    'post_status' => 'publish',   // 公開済
+                    'posts_per_page' => -1,       // 表示する投稿数(-1を指定すると全投稿を表示)
+                    'orderby' => 'date',
+                    'order' => 'ASC',
+                );
+
+                $recruit_query = new WP_Query( $recruit_args );
+                ?>
+                <?php if($recruit_query->have_posts()): ?>
+                <?php $post_counter = 1; ?>
+                <?php while ($recruit_query->have_posts()) : $recruit_query->the_post(); /* ループ開始 */ ?>
+                <?php 
+                $recruit_img = wp_get_attachment_url(get_post_meta($post->ID , 'recruit_img' ,true));
+                ?>
                 <div class="service-card">
+                    
                     <div class="service-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/recruit_01.jpg" alt="訪問看護「一会」">
+                        <img src="<?php echo $recruit_img; ?>" alt="訪問看護「一会」">
                     </div>
                     <div class="service-content">
-                        <h3>看護師（常勤／正規雇用）</h3>
+                        <h3><?php the_title(); ?></h3>
                         
-                        <a href="recruit-1.html" class="btn btn--green btn--circle btn--arrow_right">
+                        <a href="<?php echo get_permalink(); ?>" class="btn btn--green btn--circle btn--arrow_right">
                             詳細を見る
                         </a>
                     </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/recruit_02.jpg" alt="訪問看護「一会」">
-                    </div>
-                    <div class="service-content">
-                        <h3>理学療法士・作業療法士（正社員）</h3>
-                        
-                        <a href="recruit-2.html" class="btn btn--green btn--circle btn--arrow_right">
-                            詳細を見る
-                        </a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/recruit_03.jpg" alt="訪問看護「一会」">
-                    </div>
-                    <div class="service-content">
-                        <h3>理学療法士・作業療法士（パート）</h3>
-                        
-                        <a href="recruit-3.html" class="btn btn--green btn--circle btn--arrow_right">
-                            詳細を見る
-                        </a>
-                    </div>
-                </div>
+                <?php endwhile; ?>
+                <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
             </div>
             <div class="features-grid" style="width: 95%;margin-top: 3rem;">
-                    <a href="staff-voice.html#voice01" class="btn btn--yellow" style="font-size: 1.75rem;">
+                    <a href="<?php echo home_url('/'); ?>staff_voice#voice01" class="btn btn--yellow" style="font-size: 1.75rem;">
                         スタッフの声（看護師・ＰＴ）
                     </a>
-                    <a href="staff-voice.html#voice01" class="btn btn--yellow" style="font-size: 1.75rem;">
+                    <a href="<?php echo home_url('/'); ?>staff_voice#voice02" class="btn btn--yellow" style="font-size: 1.75rem;">
                         スタッフの声（介護スタッフ）
                     </a>
             </div>
@@ -70,47 +67,47 @@
 
     <!-- 充実した研修制度 -->
     <section class="services-section" id="training" style="background-color: white;">
-        <div class="container">
+        <div class="container" style="max-width: 800px;">
             <div class="section-title">
                 <h2 class="slash-title">充実した研修制度</h2>
             </div>
             <div class="services-grid">
+                <?php
+                $training_args = Array(
+                    'post_type' => 'training',  // 投稿
+                    'post_status' => 'publish',   // 公開済
+                    'posts_per_page' => -1,       // 表示する投稿数(-1を指定すると全投稿を表示)
+                    'orderby' => 'date',
+                    'order' => 'ASC',
+                );
+
+                $training_query = new WP_Query( $training_args );
+                ?>
+                <?php if($training_query->have_posts()): ?>
+                <?php $post_counter = 1; ?>
+                <?php while ($training_query->have_posts()) : $training_query->the_post(); /* ループ開始 */ ?>
+                <?php 
+                $training_img = wp_get_attachment_url(get_post_meta($post->ID , 'training_img' ,true));
+                $training_summary = get_post_meta($post->ID , 'training_summary' ,true);
+                ?>
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/recruit_04.jpg" alt="充実した研修制度">
+                        <img src="<?php echo $training_img; ?>" alt="充実した研修制度">
                     </div>
                     <div class="service-content">
-                        <h3>社外研修</h3>
-                        <p>研修内容などの掲載欄です。</p>
-                        <a href="training-1.html" class="btn btn--green btn--circle btn--arrow_right">
+                        <h3><?php the_title(); ?></h3>
+                        <?php if(empty($training_summary)): ?>
+                        <?php else: ?>
+                        <p><?php echo $training_summary; ?></p>
+                        <?php endif; ?>
+                        <a href="<?php echo get_permalink(); ?>" class="btn btn--green btn--circle btn--arrow_right">
                             詳細を見る
                         </a>
                     </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/recruit_05.jpg" alt="充実した研修制度">
-                    </div>
-                    <div class="service-content">
-                        <h3>社内研修</h3>
-                        <p>研修内容などの掲載欄です。</p>
-                        <a href="training-2.html" class="btn btn--green btn--circle btn--arrow_right">
-                            詳細を見る
-                        </a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/recruit_06.jpg" alt="充実した研修制度">
-                    </div>
-                    <div class="service-content">
-                        <h3>資格の取得</h3>
-                        <p>資格の取得内容などの掲載欄です。</p>
-                        <a href="training-3.html" class="btn btn--green btn--circle btn--arrow_right">
-                            詳細を見る
-                        </a>
-                    </div>
-                </div>
+                <?php endwhile; ?>
+                <?php endif; ?>
+                <?php wp_reset_postdata(); ?>
             </div>
         </div>
     </section>

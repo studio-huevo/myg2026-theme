@@ -299,20 +299,20 @@ span.wpcf7-spinner {
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>training_01" class="new-header__mega-link">
-                                                ├ 社外研修
-                                            </a>
-                                        </div>
-                                        <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>training_02" class="new-header__mega-link">
+                                            <a href="<?php echo home_url('/'); ?>training/社内研修" class="new-header__mega-link">
                                                 ├ 社内研修
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
-                                            <a href="<?php echo home_url('/'); ?>training_03" class="new-header__mega-link">
-                                                └ 資格の取得
+                                            <a href="<?php echo home_url('/'); ?>training/社外研修" class="new-header__mega-link">
+                                                └ 社外研修
                                             </a>
                                         </div>
+                                        <!-- <div style="padding-left: 3rem;">
+                                            <a href="<?php echo home_url('/'); ?>training/資格の取得" class="new-header__mega-link">
+                                                └ 資格の取得
+                                            </a>
+                                        </div> -->
                                     </li>
                                 </ul>
                             </div>
@@ -392,9 +392,9 @@ span.wpcf7-spinner {
                             <a href="<?php echo home_url('/'); ?>staff-voice#voice01">├ スタッフの声（看護師・ＰＴ）</a>
                             <a href="<?php echo home_url('/'); ?>staff-voice#voice02">└ スタッフの声（介護スタッフ）</a>
                             <a href="<?php echo home_url('/'); ?>recruit#training">◆ 充実した研修制度</a>
-                            <a href="<?php echo home_url('/'); ?>training_01">├ 社外研修</a>
-                            <a href="<?php echo home_url('/'); ?>training_02">├ 社内研修</a>
-                            <a href="<?php echo home_url('/'); ?>training_03">└ 資格の取得</a>
+                            <a href="<?php echo home_url('/'); ?>training/社内研修">├ 社内研修</a>
+                            <a href="<?php echo home_url('/'); ?>training/社外研修">└ 社外研修</a>
+                            <!-- <a href="<?php echo home_url('/'); ?>training_03">└ 資格の取得</a> -->
                         </li>
                     </ul>
                 </li>
