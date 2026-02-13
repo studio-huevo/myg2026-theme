@@ -3,16 +3,16 @@ add_action('init', 'my_faqposting_init');
 function my_faqposting_init()
 {
   $labels = array(
-    'name' => 'FAQ情報',
-    'singular_name' => 'FAQ情報',
-    'add_new' => 'FAQ情報を追加',
-    'add_new_item' => 'FAQ情報を追加する',
-    'edit_item' => 'FAQ情報を編集する',
-    'new_item' => '新しいFAQ情報',
-    'view_item' => 'FAQ情報表示',
-    'search_items' => 'FAQ情報検索',
-    'not_found' =>  '検索FAQ情報が見つかりません',
-    'not_found_in_trash' => 'ゴミ箱にFAQ情報はありません',
+    'name' => 'よくある質問',
+    'singular_name' => 'よくある質問',
+    'add_new' => 'よくある質問を追加',
+    'add_new_item' => 'よくある質問を追加する',
+    'edit_item' => 'よくある質問を編集する',
+    'new_item' => '新しいよくある質問',
+    'view_item' => 'よくある質問表示',
+    'search_items' => 'よくある質問検索',
+    'not_found' =>  '検索よくある質問が見つかりません',
+    'not_found_in_trash' => 'ゴミ箱によくある質問はありません',
     'parent_item_colon' => ''
   );
   $args = array(

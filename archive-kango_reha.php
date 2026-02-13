@@ -2,7 +2,7 @@
 
 <!-- メインコンテンツ -->
 <main class="main-content">
-    <section class="features-section" id="reha" style="background-color: white;">
+    <section class="features-section" id="reha-1" style="background-color: white;">
         <div class="container">
             <div class="section-title">
                 <h2 class="slash-title">
@@ -21,7 +21,7 @@
     </section>
 
     <!-- サービス内容 -->
-    <section class="features-section" id="reha">
+    <section class="features-section" id="reha-2">
         <div class="container">
             <div class="section-title">
                 <h2 class="slash-title">
@@ -58,7 +58,7 @@
     </section>
     
     <!-- 訪問リハビリテーションの対象者 -->
-    <section class="features-section" id="reha" style="background-color: white;">
+    <section class="features-section" id="reha-3" style="background-color: white;">
         <div class="container">
             <div class="section-title">
                 <h2 class="slash-title">
@@ -76,7 +76,7 @@
         </div>
     </section>
     <!-- ポイント -->
-    <section class="features-section" id="reha">
+    <section class="features-section" id="reha-4">
         <div class="container">
             <div class="section-title">
                 <h2 class="slash-title">

@@ -9,7 +9,7 @@
         </div>
     </section>
     <!-- ホームホスピスとは -->
-    <section class="features-section" id="features">
+    <section class="features-section" id="wako-1">
         <div class="container">
             <div class="section-title">
                 <h2 class="slash-title">
@@ -25,7 +25,7 @@
         </div>
     </section>
     <!-- ホームホスピスの理念 -->
-    <section class="features-section" id="features" style="background-color: white;">
+    <section class="features-section" id="wako-2" style="background-color: white;">
         <div class="container">
             <div class="section-title">
                 <h2 class="slash-title">
@@ -43,7 +43,7 @@
         </div>
     </section>
     <!-- ホームホスピス「わこの家」って？ -->
-    <section class="features-section">
+    <section class="features-section" id="wako-3">
         <div class="container">
             <div class="section-title">
                 <h2 class="slash-title">
@@ -62,7 +62,7 @@
         </div>
     </section>
     <!-- わこの家、ここは、もうひとつの我が家 -->
-    <section class="features-section" style="background-color: white;">
+    <section class="features-section" id="wako-4" style="background-color: white;">
         <div class="container">
             <div class="section-title">
                 <h2 class="slash-title">

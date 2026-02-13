@@ -1,0 +1,32 @@
+/* ===== CF7 プロ仕様送信ボタン ===== */
+
+.cf7-submit{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  background-color: var(--primary-green);
+  color:#fff;
+  font-size:18px;
+  font-weight:700;
+
+  padding:16px 28px;
+  border:none;
+  border-radius:12px;
+
+  cursor:pointer;
+  transition:.25s;
+}
+
+.cf7-submit i{
+  transition:.25s;
+}
+
+.cf7-submit:hover i{
+  transform:translateX(6px);
+}
+
+/* スピナー非表示 */
+span.wpcf7-spinner {
+  display: none;
+}

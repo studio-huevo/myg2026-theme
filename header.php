@@ -12,6 +12,18 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <?php if ( is_home() && is_front_page() ) : ?>
 <title>訪問看護・訪問リハビリ・ホームホスピス関する相談・介護のお悩みをお持ちの方へ | <?php bloginfo('name'); ?></title>
+<?php elseif ( is_post_type_archive('wakonoie') ) : ?>
+<title>ホームホスピス「わこの家」 | <?php bloginfo('name'); ?></title>
+<?php elseif ( is_post_type_archive('kango_ichie') ) : ?>
+<title>訪問看護・訪問リハビリテーション | <?php bloginfo('name'); ?></title>
+<?php elseif ( is_post_type_archive('kango_info') ) : ?>
+<title>訪問看護 | <?php bloginfo('name'); ?></title>
+<?php elseif ( is_post_type_archive('kango_reha') ) : ?>
+<title>訪問リハビリテーション | <?php bloginfo('name'); ?></title>
+<?php elseif ( is_post_type_archive('kaigo_ichie') ) : ?>
+<title>訪問介護 | <?php bloginfo('name'); ?></title>
+<?php elseif ( is_post_type_archive('corporation') ) : ?>
+<title>法人案内 | <?php bloginfo('name'); ?></title>
 <?php else : ?>
 <title><?php wp_title(''); ?> | <?php bloginfo('name'); ?></title>
 <?php endif; ?>
@@ -24,40 +36,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&amp;family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <?php if( is_page('contact') ) : ?>
+<link rel="stylesheet" href="<?php echo get_template_directory_uri().'/assets/css/cf7.css'; echo '?' . filemtime( get_stylesheet_directory() . '/assets/css/cf7.css'); ?>" media="all">
+<?php elseif( is_post_type_archive('kango_reha') ) : ?>
 <style>
-/* ===== CF7 プロ仕様送信ボタン ===== */
-
-.cf7-submit{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-
-  background-color: var(--primary-green);
-  color:#fff;
-  font-size:18px;
-  font-weight:700;
-
-  padding:16px 28px;
-  border:none;
-  border-radius:12px;
-
-  cursor:pointer;
-  transition:.25s;
+/* ===== 訪問リハビリテーションアーカイブページ専用スタイル ===== */
+.features-section#reha-3 ul, .features-section#reha-4 ul {
+    list-style: disc;
+    margin-left: 2rem;
 }
-
-.cf7-submit i{
-  transition:.25s;
+.features-section#reha-3 ul li, .features-section#reha-4 ul li {
+    margin-bottom: 1rem;
 }
-
-.cf7-submit:hover i{
-  transform:translateX(6px);
+</style>
+<?php elseif( is_post_type_archive('wakonoie') ) : ?>
+<style>
+/* ===== ホームホスピスアーカイブページ専用スタイル ===== */
+.features-section#wako-2 ol, .features-section#wako-3 ol {
+    margin-left: 2rem;
 }
-
-/* スピナー非表示 */
-span.wpcf7-spinner {
-  display: none;
+.features-section#wako-2 ol li, .features-section#wako-3 ol li {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
 }
-
+.features-section#wako-2 div:first-child, .features-section#wako-3 div:first-child {
+    margin-bottom: 3rem;
 </style>
 <?php endif; ?>
 <!-- WordPressのjQueryを読み込ませない -->
