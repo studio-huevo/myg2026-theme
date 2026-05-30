@@ -27,7 +27,7 @@ function my_kaigo_ichieposting_init()
     'menu_position' => 5,
     'has_archive' => true,
 //  'supports' => array('title','editor','author','thumbnail','excerpt','comments')
-    'supports' => array('title','editor')
+    'supports' => array('title','editor','revisions')
   );
   register_post_type('kaigo_ichie',$args);
   flush_rewrite_rules( false );

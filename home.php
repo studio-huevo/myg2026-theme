@@ -170,22 +170,36 @@
     <!-- 重要事項説明書 -->
     <section class="important-section" id="important" style="background-color: white;">
         <div class="container">
+            <?php
+                $document_args = Array(
+                    'post_type' => 'document',  // 投稿
+                    'post_status' => 'publish',   // 公開済
+                        'posts_per_page' => -1,       // 表示する投稿数(-1を指定すると全投稿を表示)
+                );
+
+                $document_query = new WP_Query( $document_args );
+	        ?>
+            <?php if($document_query->have_posts()): ?>
+            <?php while ($document_query->have_posts()) : $document_query->the_post(); /* ループ開始 */ ?>
+
+            <div class="section-title">
+                <h2 class="slash-title">訪問看護医療DX情報活用加算について</h2>
+                <p>訪問看護医療DX情報活用加算に関するお知らせをPDFでダウンロードできます。</p>
+            </div>
+            <div class="important-grid" style="margin-bottom: 4rem;">
+                <div></div>
+                <div class="important-content__btn-wrap">
+                    <a href="<?php echo wp_get_attachment_url(get_post_meta($post->ID , 'document_file04' ,true)); ?>" class="btn btn--yellow" target="_blank" style="width: 100%; font-size: 1.5rem;">
+                        訪問看護医療DX情報活用加算に関するお知らせ
+                    </a>
+                </div>
+                <div></div>
+            </div>
             <div class="section-title">
                 <h2 class="slash-title">重要事項説明書</h2>
                 <p>重要事項説明書をPDFでダウンロードできます。</p>
             </div>
             <div class="important-grid">
-                <?php
-                    $document_args = Array(
-                        'post_type' => 'document',  // 投稿
-                        'post_status' => 'publish',   // 公開済
-                        'posts_per_page' => -1,       // 表示する投稿数(-1を指定すると全投稿を表示)
-                    );
-
-                    $document_query = new WP_Query( $document_args );
-                ?>
-			    <?php if($document_query->have_posts()): ?>
-			    <?php while ($document_query->have_posts()) : $document_query->the_post(); /* ループ開始 */ ?>
                 <div class="important-content__btn-wrap">
                     <a href="<?php echo wp_get_attachment_url(get_post_meta($post->ID , 'document_file01' ,true)); ?>" class="btn btn--yellow" target="_blank" style="width: 100%; font-size: 1.5rem;">
                         ホームホスピスわこの家 重要事項説明書

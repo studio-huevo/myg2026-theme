@@ -20,7 +20,12 @@
             </div>
             <div class="footer--comp__sns-btn" style="width: 300px">
                 <a href="https://www.instagram.com/muyuugen/" target="_blank" rel="noopener noreferrer">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bnr_instagram.jpg" style="min-width: 300px;" alt="Instagram 更新中！" />
+                    <img src="<?php  echo get_template_directory_uri().'/assets/images/bnr_instagram.jpg'; echo '?' . filemtime( get_stylesheet_directory() . '/assets/images/bnr_instagram.jpg'); ?>" style="min-width: 300px;" alt="Instagram 更新中！" />
+                </a>
+            </div>
+            <div class="footer--comp__sns-btn" style="width: 300px">
+                <a href="https://www.shf.or.jp/" target="_blank" rel="noopener noreferrer">
+                    <img src="<?php echo get_template_directory_uri().'/assets/images/shf.png'; echo '?' . filemtime( get_stylesheet_directory() . '/assets/images/shf.png'); ?>" style="min-width: 300px;" alt="笹川保健財団" />
                 </a>
             </div>
         </div>
@@ -123,7 +128,7 @@
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/wako_popup.js"></script>
 <?php endif; ?>
 <?php if ( is_home() && is_front_page() ) : ?>
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/instagram.js"></script>
+<script src="<?php echo get_template_directory_uri().'/assets/js/instagram.js'; echo '?' . filemtime( get_stylesheet_directory() . '/assets/js/instagram.js'); ?>"></script>
 <?php endif; ?>
 
 <?php wp_footer(); ?>

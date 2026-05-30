@@ -60,6 +60,7 @@
 }
 .features-section#wako-2 div:first-child, .features-section#wako-3 div:first-child {
     margin-bottom: 3rem;
+}
 </style>
 <?php endif; ?>
 <!-- WordPressのjQueryを読み込ませない -->
@@ -121,7 +122,7 @@
         </div>
     </div>
     <div class="new-header__bottombar">
-            <!-- PCナビゲーション（PDF準拠） -->
+            <!-- PCナビゲーション -->
             <nav class="new-header__nav">
 
                 <!-- トップページ -->
@@ -192,7 +193,7 @@
                                         </div>
                                         <div style="padding-left: 3rem;">
                                             <a href="<?php echo home_url('/'); ?>corporation#greeting" class="new-header__mega-link">
-                                                ├ 10周年のご挨拶
+                                                ├ 代表のご挨拶
                                             </a>
                                         </div>
                                         <div style="padding-left: 3rem;">
@@ -358,7 +359,7 @@
                     <ul class="submenu">
                         <li>
                             <a href="<?php echo home_url('/'); ?>corporation">◆ 法人案内トップ</a>
-                            <a href="<?php echo home_url('/'); ?>corporation#greeting">├ 10周年のご挨拶</a>
+                            <a href="<?php echo home_url('/'); ?>corporation#greeting">├ 代表のご挨拶</a>
                             <a href="<?php echo home_url('/'); ?>corporation#summary">├ 法人概要</a>
                             <a href="<?php echo home_url('/'); ?>corporation#access">└ アクセス</a>
                         </li>
@@ -390,9 +391,9 @@
                             <a href="<?php echo home_url('/'); ?>recruit/看護師（常勤／正規雇用）">├ 看護師（常勤／正規雇用）求人</a>
                             <a href="<?php echo home_url('/'); ?>recruit/理学療法士・作業療法士（正社員）">├ 理学療法士・作業療法士（正社員）求人</a>
                             <a href="<?php echo home_url('/'); ?>recruit/理学療法士・作業療法士（パート）">└ 理学療法士・作業療法士（パート）求人</a>
-                            <a href="<?php echo home_url('/'); ?>staff-voice">◆ スタッフの声</a>
-                            <a href="<?php echo home_url('/'); ?>staff-voice#voice01">├ スタッフの声（看護師・ＰＴ）</a>
-                            <a href="<?php echo home_url('/'); ?>staff-voice#voice02">└ スタッフの声（介護スタッフ）</a>
+                            <a href="<?php echo home_url('/'); ?>staff_voice">◆ スタッフの声</a>
+                            <a href="<?php echo home_url('/'); ?>staff_voice#voice01">├ スタッフの声（看護師・ＰＴ）</a>
+                            <a href="<?php echo home_url('/'); ?>staff_voice#voice02">└ スタッフの声（介護スタッフ）</a>
                             <a href="<?php echo home_url('/'); ?>recruit#training">◆ 充実した研修制度</a>
                             <a href="<?php echo home_url('/'); ?>training/社内研修">├ 社内研修</a>
                             <a href="<?php echo home_url('/'); ?>training/社外研修">└ 社外研修</a>
@@ -421,4 +422,3 @@
             
         </div>
 </header>
-
