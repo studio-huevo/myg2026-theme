@@ -53,10 +53,10 @@
                         <th>設立</th>
                         <td><?php echo nl2br(get_post_meta($post->ID, 'setsuritsu', true)); ?></td>
                     </tr>
-                    <tr>
+                    <!-- <tr>
                         <th>資本金</th>
                         <td><?php echo nl2br(get_post_meta($post->ID, 'shihonkin', true)); ?></td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <th>代表者</th>
                         <td><?php echo nl2br(get_post_meta($post->ID, 'daihyousha', true)); ?></td>
